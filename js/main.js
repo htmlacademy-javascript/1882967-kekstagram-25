@@ -1,19 +1,19 @@
-function showRandomNumber (minNumber, maxNumber) {
-  if (minNumber >= 0 && maxNumber >= 0) {
-    return Math.round(Math.random()*(maxNumber - minNumber + 1) + minNumber);
+function getRandomNumber (min, max) {
+  if (min >= 0 && max >= 0) {
+    if (min > max) {
+      [min, max] = [max, min];
+    }
+    const rand = min + Math.random() * (max + 1 - min);
+    return(Math.floor(rand));
   } else {
-    return 'Отрицательное значение запрещено';
+    throw new Error('Отрицательное значение запрещено');
   }
 }
-showRandomNumber(1, 25);
+getRandomNumber(0,0);
 
 
-function getMaximumLength (stitchLength, maxLength) {
-  stitchLength = stitchLength.length;
-  if (stitchLength <= maxLength) {
-    return 'true';
-  } else {
-    return 'false';
-  }
+function checkMaxLength (string, maxLength) {
+  const stringLength = string.length;
+  return stringLength <= maxLength;
 }
-getMaximumLength('hello', 10);
+checkMaxLength('hello', 10);
