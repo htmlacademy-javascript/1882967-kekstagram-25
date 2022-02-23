@@ -3,13 +3,13 @@ function getRandomNumber (min, max) {
     if (min > max) {
       [min, max] = [max, min];
     }
-    const rand = min + Math.random() * (max + 1 - min);
-    return(Math.floor(rand));
+    const rand = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(rand);
   } else {
     throw new Error('Отрицательное значение запрещено');
   }
 }
-getRandomNumber(0,0);
+getRandomNumber(0,2);
 
 
 function checkMaxLength (string, maxLength) {
